@@ -1,0 +1,6 @@
+.error{
+    color: tomato;
+}
+.ng-invalid{
+    border-color: tomato;
+}

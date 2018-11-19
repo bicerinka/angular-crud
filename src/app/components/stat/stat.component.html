@@ -1,0 +1,12 @@
+<div *ngFor="let r of regions;let i = index" class="card mb-2">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h3 (click)="showCity(r.name, i);r.hide = !r.hide" class="btn btn-primary">
+            {{r.name}} ({{r.count}})
+        </h3>
+    </div>
+    <div class="card-body" [hidden]="r.hide">
+       <p *ngFor="let city of r.city">{{city.name}} {{city.count}}</p>
+     </div>
+</div>
+
+

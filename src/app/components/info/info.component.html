@@ -1,0 +1,23 @@
+<div *ngFor="let comment of comments" class="card mb-2">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <div>
+            <p>{{comment.lastname}} {{ comment.firstname }} {{ comment.surname }} </p>
+            <p>{{ comment.comment }}</p>
+        </div>
+
+        <div>
+            <button (click)="comment.hide = !comment.hide" class="btn btn-primary">
+                Show
+            </button>
+            <button (click)="deleteComment(comment)" class="btn btn-danger">
+                Delete
+            </button>
+        </div>
+    </div>
+    <div class="card-body" [hidden]="comment.hide">
+        <p>{{comment.region}}</p>
+        <p>{{comment.city}}</p>
+        <p>{{comment.phone}}</p>
+        <p>{{comment.email}}</p>
+    </div>
+</div>

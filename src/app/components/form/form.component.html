@@ -1,0 +1,63 @@
+<p *ngIf="messageSuccess" class="alert-success">Ваш комментарий успешно добавлен!</p>
+<form [formGroup]="myFirstReactiveForm" (submit)="onSubmit()">
+    <div class="form-group">
+        <label>Фамилия</label>
+        <input type="text" id="lastname" formControlName="lastname" class="form-control"/>
+        <div class="error" *ngIf="isControlInvalid('lastname')">
+            Обязательное поле
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Имя</label>
+        <input type="text" id="firstname" formControlName="firstname" class="form-control"/>
+        <div class="error" *ngIf="isControlInvalid('firstname')">
+            Обязательное поле
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Отчество</label>
+        <input type="text" id="surname" formControlName="surname" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label>Регион</label>
+        <select id="region" formControlName="region" (ngModelChange)="onChange($event)" class="form-control">
+            <option value="">Выберите регион</option>
+            <option *ngFor="let r of region;let i = index" [ngValue]="i">
+                {{ r }}
+            </option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Город</label>
+        <select *ngIf="currentCity" id="city" formControlName="city" class="form-control">
+            <option value="">Выберите город</option>
+            <option *ngFor="let city of city[currentCity-1];let i = index" [ngValue]="city">
+                {{ city }}
+            </option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Телефон</label>
+        <input type='text' id="phone" mask="(000) 0000000" formControlName="phone"  class="form-control">
+        <div class="error" *ngIf="isControlInvalid('phone')">
+            Укажите номер телефона в формате «(код города) номер».
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" id="email" formControlName="email" class="form-control"/>
+        <div class="error" *ngIf="isControlInvalid('email')">
+            Укажите валидный адрес электронной почты
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Комментарий</label>
+        <textarea id="comment" formControlName="comment" class="form-control"></textarea>
+        <div class="error" *ngIf="isControlInvalid('comment')">
+            Обязательное поле
+        </div>
+    </div>
+    <button type="submit" class="btn btn-info">отправить</button>
+</form>
+<hr/>
+<div>{{myFirstReactiveForm.value|json}}</div>
