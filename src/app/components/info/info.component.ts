@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Comment} from '../../models/comment';
 import {CommentService} from '../../services/comment.service';
 
@@ -9,7 +9,6 @@ import {CommentService} from '../../services/comment.service';
 })
 export class InfoComponent implements OnInit {
     comments: Comment[];
-    @Input() task: Comment;
 
     constructor(private comment: CommentService) {
     }

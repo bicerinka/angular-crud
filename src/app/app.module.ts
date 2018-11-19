@@ -4,7 +4,7 @@ import {ReactiveFormsModule} from '@angular/forms';  // <-- #1 import module
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {RouterModule, Routes} from '@angular/router';
 
-import {AppComponent} from './app.component';
+import {AppComponent} from './components/app/app.component';
 import {CommentService} from './services/comment.service';
 
 import {NgxMaskModule} from 'ngx-mask';

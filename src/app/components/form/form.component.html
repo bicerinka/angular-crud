@@ -31,14 +31,14 @@
         <label>Город</label>
         <select *ngIf="currentCity" id="city" formControlName="city" class="form-control">
             <option value="">Выберите город</option>
-            <option *ngFor="let city of city[currentCity-1];let i = index" [ngValue]="city">
+            <option *ngFor="let city of city[currentCity-1]" [ngValue]="city">
                 {{ city }}
             </option>
         </select>
     </div>
     <div class="form-group">
         <label>Телефон</label>
-        <input type='text' id="phone" mask="(000) 0000000" formControlName="phone"  class="form-control">
+        <input type='text' id="phone" mask="(000) 0000000" formControlName="phone" class="form-control">
         <div class="error" *ngIf="isControlInvalid('phone')">
             Укажите номер телефона в формате «(код города) номер».
         </div>
@@ -57,7 +57,7 @@
             Обязательное поле
         </div>
     </div>
-    <button type="submit" class="btn btn-info">отправить</button>
+    <button type="submit" class="btn btn-info">Отправить</button>
 </form>
 <hr/>
 <div>{{myFirstReactiveForm.value|json}}</div>
