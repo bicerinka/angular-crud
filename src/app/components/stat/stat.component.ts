@@ -4,7 +4,7 @@ import {CommentService} from '../../services/comment.service';
 @Component({
   selector: 'app-stat',
   templateUrl: './stat.component.html',
-  styleUrls: ['./stat.component.css']
+  // styleUrls: ['./stat.component.css']
 })
 export class StatComponent implements OnInit {
     regions: Array = [];
@@ -24,11 +24,11 @@ export class StatComponent implements OnInit {
     }
 
     showCity(region: string, i: number): void {
-      if (!this.regions[i].city) {
+      if (!('city' in this.regions[i])) {
           const obj = this.comment.getStatCity(region);
-          this.regions[i].city = [];
+          this.regions[i]['city'] = [];
           for (let key in obj) {
-              this.regions[i].city.push({
+              this.regions[i]['city'].push({
                   name: key,
                   count: obj[key],
               });
