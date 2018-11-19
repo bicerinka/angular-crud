@@ -5,7 +5,7 @@ import { Comment } from '../models/comment';
     providedIn: 'root'
 })
 export class CommentService {
-    comments: Array = [];
+    comments: Comment[] = [];
 
     constructor() {
     }

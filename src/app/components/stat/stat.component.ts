@@ -7,7 +7,7 @@ import {CommentService} from '../../services/comment.service';
   // styleUrls: ['./stat.component.css']
 })
 export class StatComponent implements OnInit {
-    regions: Array = [];
+    regions = [];
 
     constructor(private comment: CommentService) {
     }
